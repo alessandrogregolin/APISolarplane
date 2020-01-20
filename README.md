@@ -8,6 +8,14 @@ Backend for the solar plane web app. By Alessandro Gregolin
 
 ## Installing
 ### Environment setup
+Do it all at once by typing the follwing command
+
+```
+$ conda env create -f environment.yml -n solarplane_api
+```
+
+Or do it step by step:
+
 To create a new environment open a new terminal and type the following
 ```
 $ conda create -n solarplane_api python=3.7
@@ -22,13 +30,9 @@ $ conda config --add channels conda-forge
 ```
 
 ### Install packages
-The following packages need to be installed
-  * Scipy
-  * Plotly
-  * Flask
-  
-In order to do so type the following command
+
+In order to install all necessary packages and also create the environment at once, type the follwing
 
 ```
-$ conda install scipy plotly flask -n solarplane
+$ conda env create -f environment.yml -n solarplane_api
 ```
