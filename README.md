@@ -36,3 +36,13 @@ In order to install all necessary packages and also create the environment at on
 ```
 $ conda env create -f environment.yml -n solarplane_api
 ```
+Then install packages that are not available in conda
+
+```
+$ which -a pip
+```
+
+Select the pip in your environment and do
+```
+$ /Users/coding/opt/anaconda3/envs/solarplane_api/bin/pip install pyrebase 
+```
