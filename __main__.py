@@ -1,4 +1,4 @@
-from flask import Flask, session, request
+from flask import Flask, session, request, jsonify
 import requests
 import os
 import pyrebase
@@ -35,8 +35,7 @@ def createUser():
     except KeyError:
         if request.method == "POST":
             data = request.get_json(force=True)
-            email = data.userEmail
-            password = data.userPassword
+            print(data)           
             try:
                 user = auth.create_user_with_email_and_password(email, password)
                 user = auth.refresh(user['refreshToken'])
@@ -69,14 +68,13 @@ def login():
                 message = "Incorrect Password!"
         return "No data was passed in the method for the user log in"
 
-
-@app.route('/admin')
+#Check if the user is logged in or not
+@app.route('/check_auth', methods=["POST", "GET"])
 def admin():
-    try:
-        print(session['usr'])
-        return "The user is logged in, let him access the page"
-    except:
-        return "The user is not logged in, no access to the page"
+       data = request.get_json(force= True)
+       print(data)
+       return jsonify({"a": 3}), 200
+
 
 if __name__ == '__main__':
     app.run()
